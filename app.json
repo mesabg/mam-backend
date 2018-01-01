@@ -1,0 +1,7 @@
+{
+    "name": "mam",
+    "description": "MAM NodeJS Rest API",
+    "repository": "https://git.heroku.com/mam-restful-api.git",
+    "keywords": ["Rest" , "API", "MAM", "Heroku"],
+    "image": "heroku/nodejs"
+}
