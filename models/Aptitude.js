@@ -16,6 +16,6 @@ Aptitude.add({
 	content: { type: Types.Html, wysiwyg: true, height: 150 },
 });
 
-Aptitude.relationship({ ref: 'Biography', path: 'biography', refPath: 'aptitudes' });
+//Aptitude.relationship({ ref: 'Biography', path: 'biography', refPath: 'aptitudes' });
 
 Aptitude.register();
