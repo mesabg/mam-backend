@@ -8,6 +8,7 @@ var Types = keystone.Field.Types;
 
 var Biography = new keystone.List('Biography', {
 	autokey: { from: 'name', path: 'key', unique: true },
+	nocreate: true,
 });
 
 Biography.add({
