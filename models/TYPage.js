@@ -7,12 +7,12 @@ var Types = keystone.Field.Types;
  */
 
 var TYPage = new keystone.List('TYPage', {
-	autokey: { from: 'title', path: 'key', unique: true },
+	autokey: { from: 'name', path: 'key', unique: true },
 	nocreate: true,
 });
 
 TYPage.add({
-    title: { type: String, required: true },
+    name: { type: String, required: true },
     content: { type: String},
     buttonText: { type: String},
 	buttonURL: { type: Types.Url},
