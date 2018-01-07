@@ -7,7 +7,7 @@ var Types = keystone.Field.Types;
  */
 
 var Aptitude = new keystone.List('Aptitude', {
-	autokey: { from: 'title', path: 'key', unique: true },
+	autokey: { from: 'name', path: 'key', unique: true },
 });
 
 Aptitude.add({
