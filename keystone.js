@@ -58,7 +58,7 @@ keystone.set('nav', {
 	enquiries: 'enquiries',
 	users: 'users',
 	biography: ['biographies', 'achievements', 'aptitudes'],
-	thankYouPage: 'TYPages',
+	thankYouPage: 'thank-you-pages',
 });
 
 // Start Keystone to connect to your database and initialise the web server

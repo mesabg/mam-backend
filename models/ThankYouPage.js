@@ -6,16 +6,16 @@ var Types = keystone.Field.Types;
  * =============
  */
 
-var TYPage = new keystone.List('TYPage', {
+var ThankYouPage = new keystone.List('ThankYouPage', {
 	autokey: { from: 'name', path: 'key', unique: true },
 	nocreate: true,
 });
 
-TYPage.add({
+ThankYouPage.add({
     name: { type: String, required: true },
     content: { type: String},
     buttonText: { type: String},
 	buttonURL: { type: Types.Url},
 });
 
-TYPage.register();
+ThankYouPage.register();
