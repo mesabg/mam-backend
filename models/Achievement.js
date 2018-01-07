@@ -2,11 +2,11 @@ var keystone = require('keystone');
 var Types = keystone.Field.Types;
 
 /**
- * Achievements Model
+ * Achievement Model
  * =============
  */
 
-var Achievements = new keystone.List('Achievements', {
+var Achievements = new keystone.List('Achievement', {
 	autokey: { path: 'slug', from: 'name', unique: true },
 });
 

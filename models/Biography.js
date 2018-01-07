@@ -16,7 +16,7 @@ Biography.add({
 	authorQuote: { type: Types.Html, wysiwyg: true, height: 150 },
 	content: { type: Types.Html, wysiwyg: true, height: 400 },
 	aptitudes: { type: Types.Relationship, ref: 'Aptitude', many: true },
-	//achievements: { type: Types.Relationship, ref: 'Achievement', many: true },
+	achievements: { type: Types.Relationship, ref: 'Achievement', many: true },
 });
 
 Biography.register();
