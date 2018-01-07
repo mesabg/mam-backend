@@ -11,7 +11,7 @@ var Aptitude = new keystone.List('Aptitude', {
 });
 
 Aptitude.add({
-	title: { type: String, required: true },
+	title: { type: String, required: true, default: 'Aptitud' },
 	image: { type: Types.CloudinaryImage },
 	content: { type: Types.Html, wysiwyg: true, height: 150 },
 });
