@@ -8,7 +8,6 @@ var Types = keystone.Field.Types;
 
 var ThankYouPage = new keystone.List('ThankYouPage', {
 	autokey: { from: 'name', path: 'key', unique: true },
-	nocreate: true,
 });
 
 ThankYouPage.add({
