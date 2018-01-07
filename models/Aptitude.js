@@ -7,11 +7,11 @@ var Types = keystone.Field.Types;
  */
 
 var Aptitude = new keystone.List('Aptitude', {
-	autokey: { path: 'slug', from: 'title', unique: true },
+	autokey: { path: 'slug', from: 'name', unique: true },
 });
 
 Aptitude.add({
-	title: { type: String, required: true, default: 'Aptitud' },
+	name: { type: String, required: true},
 	image: { type: Types.CloudinaryImage },
 	content: { type: Types.Html, wysiwyg: true, height: 150 },
 });
