@@ -17,7 +17,7 @@ ContactPage.add({
     formIntroduction: { type: Types.Html, wysiwyg: true, height: 150 },
     questions: { type: Types.Relationship, ref: 'Question', many: true },
     endingNote: { type: Types.Html, wysiwyg: true, height: 100 },
-    email: { type: Types.Email, required: true },
+    email: { type: Types.Email, required: true, default: 'mam-admin@gmail.com' },
 });
 
 ContactPage.register();
