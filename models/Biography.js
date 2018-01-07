@@ -12,7 +12,7 @@ var Biography = new keystone.List('Biography', {
 
 Biography.add({
 	name: { type: String, required: true },
-	banner: { type: Types.CloudinaryImages },
+	banner: { type: Types.CloudinaryImage },
 	authorQuote: { type: Types.Html, wysiwyg: true, height: 150 },
 	content: { type: Types.Html, wysiwyg: true, height: 400 },
 });
