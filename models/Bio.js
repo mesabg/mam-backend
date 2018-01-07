@@ -12,9 +12,9 @@ var Biography = new keystone.List('Biography', {
 
 Biography.add({
 	name: { type: String, required: true },
-	publishedDate: { type: Date, default: Date.now },
-	heroImage: { type: Types.CloudinaryImage },
-	images: { type: Types.CloudinaryImages },
+	banner: { type: Types.CloudinaryImages },
+	authorQuote: { type: Types.Html, wysiwyg: true, height: 150 },
+	content: { type: Types.Html, wysiwyg: true, height: 400 },
 });
 
 Biography.register();
