@@ -45,8 +45,6 @@ exports = module.exports = function (app) {
 
 	// API REST
 	app.get('/api/question', routes.api.question.list);
-	app.get('/api/question/:id', routes.api.question.get);
-	app.post('/api/question', routes.api.question.create);
 
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);

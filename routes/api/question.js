@@ -5,14 +5,14 @@ var Question = keystone.list('Question');
 /**
  * List Question
  */
-/*exports.list = function(req, res) {
+exports.list = function(req, res) {
     Question.model.find(function(err, items) {
         if (err) return res.json({ err: err });
         res.json({
             question: items
         });
     });
-}*/
+}
 
 /**
  * Get Question by ID
