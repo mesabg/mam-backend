@@ -9,6 +9,9 @@ exports = module.exports = function (req, res) {
 	// item in the header navigation.
 	locals.section = 'home';
 
+	// Views
+	app.get('/', routes.views.index);
+
 	// API
 	app.get('/api/question', routes.api.question.list);
 	app.get('/api/question/:id', routes.api.question.get);
