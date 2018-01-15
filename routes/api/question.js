@@ -15,25 +15,9 @@ exports.list = function(req, res) {
 }
 
 /**
- * Get Question by ID
- */
-/*exports.get = function(req, res) {
-    Question.model.findById(req.params.id).exec(function(err, item){
-        if (err) return res.json({ err: err });
-        if (!item) return res.json('not found');
-
-        res.json({
-            question: item
-        });
-
-    });
-}*/
-
-
-/**
  * Create a Question
  */
-/*exports.create = function(req, res) {
+exports.create = function(req, res) {
     var item = new Question.model(),
     data = (req.method == 'POST') ? req.body : req.query;
 
@@ -43,4 +27,4 @@ exports.list = function(req, res) {
             question: item
         });
     });
-}*/
+}
