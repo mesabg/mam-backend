@@ -8,7 +8,6 @@ var Types = keystone.Field.Types;
 
 var Portfolio = new keystone.List('Portfolio', {
 	autokey: { from: 'name', path: 'key', unique: true },
-	nocreate: true,
 });
 
 Portfolio.add({
