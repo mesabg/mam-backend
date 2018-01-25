@@ -1,15 +1,15 @@
 var keystone = require('keystone');
 
-var BlogArticle = keystone.list('BlogArticle');
+var Article = keystone.list('Article');
 
 /**
- * List BlogArticle
+ * List Article
  */
 exports.list = function(req, res) {
-    BlogArticle.model.find(function(err, items) {
+    Article.model.find(function(err, items) {
         if (err) return res.json({ err: err });
         res.json({
-            blogarticle: items
+            article: items
         });
     });
 }
