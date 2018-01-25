@@ -23,6 +23,8 @@ var middleware = require('./middleware');
 var importRoutes = keystone.importer(__dirname);
 
 // Common Middleware
+keystone.pre('routes', middleware.enableCors);
+keystone.pre('render', middleware.enableCors);
 keystone.pre('routes', middleware.initLocals);
 keystone.pre('render', middleware.flashMessages);
 

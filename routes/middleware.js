@@ -55,3 +55,10 @@ exports.requireUser = function (req, res, next) {
 		next();
 	}
 };
+
+
+exports.enableCors = function (req ,res , next){
+	response.header("Access-Control-Allow-Origin", "*");
+	response.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+	next();
+};
