@@ -45,6 +45,7 @@ exports = module.exports = function (app) {
 	app.all('/contact', routes.views.contact);
 
 	// API REST
+	app.get('/api/biography', routes.api.biography.list);
 	app.get('/api/question', routes.api.question.list);
 
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
