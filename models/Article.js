@@ -13,7 +13,7 @@ var Article = new keystone.List('Article', {
 Article.add({
 	name: { type: String, required: true },
     main: { type: Types.CloudinaryImage },
-	location: { type: String, required: true },
+	location: { type: String},
 });
 
 Article.register();
