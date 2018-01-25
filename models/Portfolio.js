@@ -15,7 +15,7 @@ Portfolio.add({
     banner: { type: Types.CloudinaryImage },
     mini: { type: Types.CloudinaryImage },
 	testimony: { type: Types.Html, wysiwyg: true, height: 150 },
-	author: { type: String, required: true },
+	author: { type: String },
 });
 
 Portfolio.register();
