@@ -44,7 +44,7 @@ exports = module.exports = function (app) {
 	app.get('/blog/:category?', routes.views.blog);
 	app.get('/blog/post/:post', routes.views.post);
 	app.get('/gallery', routes.views.gallery);
-	app.all('/contact', routes.views.contact);
+	app.all('/terms-and-conditions', routes.views.contact);
 
 	// API REST
 	app.get('/api/biography', routes.api.biography.list);
