@@ -14,7 +14,8 @@ Article.add({
 	name: { type: String, required: true },
     banner: { type: Types.CloudinaryImage },
 	location: { type: String},
-	fieldA: { type: Types.Relationship, ref: 'Aptitude', many:true, createInline: true },
+	mainText: { type: String},
+	/*fieldA: { type: Types.Relationship, ref: 'Aptitude', many:true, createInline: true },
 	type:{ type: Types.Select, numeric: true, options: [
 		{ value: 1, label: '1 Image' }, 
 		{ value: 2, label: '2 Images' },
@@ -23,8 +24,8 @@ Article.add({
 		{ value: 5, label: 'Image with right text' },
 		{ value: 6, label: 'Image with text above' },
 		{ value: 7, label: 'Only text' }
-	]},
-
+	]},*/
+	carouselVisible: { type: Types.Boolean },
 });
 
 Article.register();
