@@ -12,8 +12,19 @@ var Article = new keystone.List('Article', {
 
 Article.add({
 	name: { type: String, required: true },
-    main: { type: Types.CloudinaryImage },
+    banner: { type: Types.CloudinaryImage },
 	location: { type: String},
+	fieldA: { type: Types.Relationship, ref: 'Habitat', many:true, createInline: true },
+	type:{ type: Types.Select, numeric: true, options: [
+		{ value: 1, label: '1 Image' }, 
+		{ value: 2, label: '2 Images' },
+		{ value: 3, label: '3 Images' },
+		{ value: 4, label: 'Image with left text' },
+		{ value: 5, label: 'Image with right text' },
+		{ value: 6, label: 'Image with text above' },
+		{ value: 7, label: 'Only text' }
+	]},
+
 });
 
 Article.register();
