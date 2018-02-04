@@ -14,7 +14,7 @@ Article.add({
 	name: { type: String, required: true },
     banner: { type: Types.CloudinaryImage },
 	location: { type: String},
-	fieldA: { type: Types.Relationship, ref: 'Habitat', many:true, createInline: true },
+	fieldA: { type: Types.Relationship, ref: 'Aptitude', many:true, createInline: true },
 	type:{ type: Types.Select, numeric: true, options: [
 		{ value: 1, label: '1 Image' }, 
 		{ value: 2, label: '2 Images' },
