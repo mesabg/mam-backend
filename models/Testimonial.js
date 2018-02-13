@@ -6,7 +6,7 @@ var Types = keystone.Field.Types;
  * =============
  */
 
-var Testimonials = new keystone.List('Testimonial', {
+/*var Testimonials = new keystone.List('Testimonial', {
 	autokey: { path: 'slug', from: 'name', unique: true },
 });
 
@@ -19,4 +19,4 @@ Testimonials.add({
 
 Testimonials.relationship({ ref: 'TestimonialCarousel', path: 'testimonialCarousels', refPath: 'testimonials' });
 
-Testimonials.register();
+Testimonials.register();*/
