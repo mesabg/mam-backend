@@ -6,11 +6,11 @@ var Types = keystone.Field.Types;
  * =============
  */
 
-var PhotoBlock = new keystone.List('PhotoBlock', {
+var ContentBlock = new keystone.List('ContentBlock', {
 	autokey: { path: 'slug', from: 'name', unique: true },
 });
 
-PhotoBlock.add({
+ContentBlock.add({
 	name: { type: String, required: true},
 	type: { 
         type: Types.Select, 
@@ -26,9 +26,10 @@ PhotoBlock.add({
                 ] 
         },
     fullWidth: { type: Types.Boolean },
-	content: { type: Types.CloudinaryImages },
+    text: { type: Types.Html, wysiwyg: true, height: 150 },
+	images: { type: Types.CloudinaryImages },
 });
 
-PhotoBlock.relationship({ ref: 'Article', path: 'articles', refPath: 'photoBlocks' });
+ContentBlock.relationship({ ref: 'Article', path: 'articles', refPath: 'contentBlocks' });
 
-PhotoBlock.register();
+ContentBlock.register();

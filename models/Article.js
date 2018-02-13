@@ -15,6 +15,7 @@ Article.add({
     banner: { type: Types.CloudinaryImage },
 	location: { type: String},
 	mainText: { type: String},
+	contentBlocks: { type: Types.Relationship, ref: 'ContentBlock', many: true, createInline: true },
 	/*fieldA: { type: Types.Relationship, ref: 'Aptitude', many:true, createInline: true },
 	type:{ type: Types.Select, numeric: true, options: [
 		{ value: 1, label: '1 Image' }, 
