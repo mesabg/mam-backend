@@ -13,9 +13,9 @@ var TestimonialCarousel = new keystone.List('TestimonialCarousel', {
 
 TestimonialCarousel.add({
 	name: { type: String, required: true },
-	//testimonials: { type: Types.Relationship, ref: 'Testimonial', many: true, createInline: true  },
+	testimonials: { type: Types.Relationship, ref: 'Testimonial', many: true, createInline: true  },
 });
 
-ContentBlock.relationship({ ref: 'Article', path: 'articles', refPath: 'testimonialCarousel' });
+TestimonialCarousel.relationship({ ref: 'Article', path: 'articles', refPath: 'testimonialCarousel' });
 
 TestimonialCarousel.register();
