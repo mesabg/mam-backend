@@ -27,6 +27,7 @@ Article.add({
 		{ value: 7, label: 'Only text' }
 	]},*/
 	carouselVisible: { type: Types.Boolean },
+	testimonialCarousel: { type: Types.Relationship, ref: 'TestimonialCarousel', many: false, createInline: true },
 });
 
 Article.register();
