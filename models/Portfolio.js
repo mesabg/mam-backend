@@ -12,10 +12,10 @@ var Portfolio = new keystone.List('Portfolio', {
 
 Portfolio.add({
 	name: { type: String, required: true },
-    banner: { type: Types.CloudinaryImage },
-    mini: { type: Types.CloudinaryImage },
-	testimony: { type: Types.Html, wysiwyg: true, height: 150 },
-	author: { type: String },
+    banner: { type: Types.CloudinaryImages },
+	//mini: { type: Types.CloudinaryImage },
+	testimonials: { type: Types.Relationship, ref: 'Testimonial', many: false, createInline: true },
+	articles: { type: Types.Relationship, ref: 'Article', many: false, createInline: true },
 });
 
 Portfolio.register();

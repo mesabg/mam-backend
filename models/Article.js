@@ -31,5 +31,6 @@ Article.add({
 });
 
 Article.relationship({ ref: 'Blog', path: 'blogs', refPath: 'articles' });
+Article.relationship({ ref: 'Portfolio', path: 'portfolios', refPath: 'articles' });
 
 Article.register();
