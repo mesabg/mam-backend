@@ -30,4 +30,6 @@ Article.add({
 	testimonialCarousel: { type: Types.Relationship, ref: 'TestimonialCarousel', many: false, createInline: true },
 });
 
+Article.relationship({ ref: 'Blog', path: 'blogs', refPath: 'articles' });
+
 Article.register();
