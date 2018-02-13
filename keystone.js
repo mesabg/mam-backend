@@ -56,7 +56,7 @@ keystone.set('nav', {
 	//posts: ['posts', 'post-categories'],
 	//galleries: 'galleries',
 	//enquiries: 'enquiries',
-	blog: 'blog',
+	blog: 'blogs',
 	users: 'users',
 	biography: ['biographies', 'achievements', 'aptitudes'],
 	testimonialCarousel: ['testimonial-carousels', 'testimonials'],
