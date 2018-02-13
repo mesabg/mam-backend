@@ -58,6 +58,7 @@ keystone.set('nav', {
 	enquiries: 'enquiries',
 	users: 'users',
 	biography: ['biographies', 'achievements', 'aptitudes'],
+	article: ['articles', 'content-blocks'],
 	contactPage: ['contact-pages', 'questions'],
 	thankYouPage: 'thank-you-pages',
 });
