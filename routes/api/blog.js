@@ -20,7 +20,7 @@ exports.list = function(req, res) {
         }
 
         res.json({
-            Blog: articles
+            Blog: items
         });
     });
 }
