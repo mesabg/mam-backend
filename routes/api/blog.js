@@ -13,10 +13,7 @@ exports.list = function(req, res) {
         var articles;
         
         for(var i=0; i < 3 ;i++){
-
-            articles.push(
-                'holis'
-            );
+            articles.push('holis');
         }
 
         res.json({
