@@ -16,6 +16,15 @@ Article.add({
 	location: { type: String},
 	mainText: { type: String},
 	contentBlocks: { type: Types.Relationship, ref: 'ContentBlock', many: true, createInline: true },
+	blogPosition: { 
+        type: Types.Select, 
+        numeric: true, 
+        options: [
+                    { value: 1, label: 'Center' }, 
+                    { value: 2, label: 'Left' },
+                    { value: 3, label: 'Right' },
+                ] 
+        },
 	/*fieldA: { type: Types.Relationship, ref: 'Aptitude', many:true, createInline: true },
 	type:{ type: Types.Select, numeric: true, options: [
 		{ value: 1, label: '1 Image' }, 

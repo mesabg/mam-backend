@@ -12,7 +12,7 @@ var ContentBlock = new keystone.List('ContentBlock', {
 
 ContentBlock.add({
 	name: { type: String, required: true},
-	type: { 
+	class: { 
         type: Types.Select, 
         numeric: true, 
         options: [
