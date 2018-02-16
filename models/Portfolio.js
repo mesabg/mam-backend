@@ -14,8 +14,8 @@ Portfolio.add({
 	name: { type: String, required: true },
     banner: { type: Types.CloudinaryImages },
 	//mini: { type: Types.CloudinaryImage },
-	testimonials: { type: Types.Relationship, ref: 'Testimonial', many: false, createInline: true },
-	articles: { type: Types.Relationship, ref: 'Article', many: false, createInline: true },
+	testimonials: { type: Types.Relationship, ref: 'Testimonial', many: true, createInline: true },
+	articles: { type: Types.Relationship, ref: 'Article', many: true, createInline: true },
 });
 
 Portfolio.register();
