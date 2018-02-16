@@ -10,7 +10,7 @@ exports.list = function(req, res) {
     Blog.model.find(function(err, items) {
         if (err) return res.json({ err: err });
 
-        var articles = ['1','2','3'];
+        var articles = 2;
         
         /*for(var i=0; i < length(items[0].articles) ;i++){
             articles.push(
