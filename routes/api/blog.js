@@ -9,7 +9,7 @@ var Articles = keystone.list('Article');
 exports.list = function(req, res) {
     Blog.model.find(function(err, items) {
         if (err) return res.json({ err: err });
-
+        var a = 4;
         res.json({
             Blog: items
         });
