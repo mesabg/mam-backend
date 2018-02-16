@@ -13,8 +13,9 @@ exports.list = function(req, res) {
         var articles;
         
         for(var i=0; i < length(items[0].articles) ;i++){
+            
             articles.push(
-                Articles.model.find().where('_id', items[0].articles[i])
+                'holis'
             );
         }
 
