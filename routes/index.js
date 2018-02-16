@@ -47,6 +47,7 @@ exports = module.exports = function (app) {
 	app.all('/terms-and-conditions', routes.views.contact);
 
 	// API REST
+	app.get('/api/blog', 		routes.api.blog.list);
 	app.get('/api/biography', 	routes.api.biography.list);
 	app.get('/api/instagram', 	routes.api.instagram.list);
 	app.get('/api/question', 	routes.api.question.list);
