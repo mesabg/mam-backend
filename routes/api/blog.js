@@ -9,12 +9,12 @@ var Articles = keystone.list('Article');
 exports.list = function(req, res) {
     Blog.model.find(function(err, items) {
         if (err) return res.json({ err: err });
-        var a = 4;
+        var a = [];
         for(var i =0;i<4;i++){
-            a = a*4;
+            a.push('a');
         }
         res.json({
-            Blog: items
+            Blog: a
         });
     });
 }
