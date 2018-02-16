@@ -11,7 +11,7 @@ exports.list = function(req, res) {
         if (err) return res.json({ err: err });
         var a = [];
         for(var i =0;i<4;i++){
-            a.push('a');
+            a.push(Articles.model.find().where('_id', items[0].articles[i]).exec(function(errpost, article) {}));
         }
         res.json({
             Blog: a
