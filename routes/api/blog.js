@@ -12,8 +12,8 @@ exports.list = function(req, res) {
 
         var articles;
         
-        for(var i=0; i < length(items[0].articles) ;i++){
-            
+        for(var i=0; i < items[0].articles.length ;i++){
+
             articles.push(
                 'holis'
             );
