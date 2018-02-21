@@ -7,7 +7,8 @@ var Articles = keystone.list('Article');
  * List Blog
  */
 exports.list = async function(request, response) {
-    let blogs = await Blog.model.aggregate([
+    console.log("Blog is :: ", Blog);
+    /*let blogs = await Blog.model.aggregate([
         {
             $unwind: "$items"
         },
@@ -28,8 +29,8 @@ exports.list = async function(request, response) {
                 article: "$article"
             }
         }
-    ]).toArray();
-    response.json({ Blog: blogs });
+    ]).toArray();*/
+    response.json({ Blog: "" });
 
     /*Blog.model.find(function(err, items) {
         if (err) return res.json({ err: err });
