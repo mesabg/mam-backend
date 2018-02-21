@@ -7,7 +7,7 @@ var Articles = keystone.list('Article');
  * List Blog
  */
 exports.list = async function(request, response) {
-    console.log("Blog is :: ", Blog);
+    console.log("Blog is :: ", Blog.mongoose.models);
     /*let blogs = await Blog.model.aggregate([
         {
             $unwind: "$items"
