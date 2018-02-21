@@ -7,7 +7,7 @@ var Articles = keystone.list('Article');
  * List Blog
  */
 exports.list = function(request, response) {
-    console.log("Blog is :: ", Blog.mongoose.models);
+    //console.log("Blog is :: ", Blog.mongoose.models);
     let cursor = Blog.model.aggregate([
         {
             $unwind: "$items"
