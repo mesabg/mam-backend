@@ -47,7 +47,7 @@ exports.list = function(req, res) {
         }*/
 
         var a = items[0].articles[0];
-        var art = Articles.findById(req.params.id).exec(function(err, item) {res.json({
+        var art = Articles.findById(a).exec(function(err, item) {res.json({
                 article: item
             });
         });
