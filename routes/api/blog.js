@@ -49,8 +49,6 @@ exports.list = function(req, res) {
             Blog: items
         });
     }).then(function(res){
-        res.json({
-            Blog: res
-        });
+        res;
     });
 }
