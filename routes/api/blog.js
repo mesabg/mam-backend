@@ -42,7 +42,7 @@ exports.list = function(req, res) {
         var a = [];
         for(var i =0;i<items[0].articles.length;i++){
             var article_full;
-            Articles.model.find().where('_id', items[0].articles[i]).exec(function(errpost, article) {article_full = article;})
+            Articles.model.find().where('_id', items[0].articles[i]).exec(function(errpost, article) {article_full = article; res.json({a:article});})
             a.push(article_full);
         }
 
