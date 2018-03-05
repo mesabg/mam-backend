@@ -10,9 +10,6 @@ var Article = new keystone.List('Article', {
 	autokey: { from: 'name', path: 'key', unique: true },
 });
 
-function wtf(){
-	return "random";
-}
 
 Article.add({
 	name: { type: String, required: true },
