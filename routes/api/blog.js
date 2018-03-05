@@ -45,10 +45,10 @@ exports.list = function(req, res) {
             Articles.model.find().where('_id', items[0].articles[i]).exec(function(errpost, article) {article_full = items[0].articles[i];})
             a.push(article_full);
         }*/
-        res.json({
-            Blog: items
-        });
+        res = items;
     }).then(function(res){
-        res;
+        res.json({
+            Blog: res
+        });
     });
 }
