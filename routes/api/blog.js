@@ -6,9 +6,9 @@ var Articles = keystone.list('Article');
 /**
  * List Blog
  */
-exports.list = function(req, res) {
+exports.list = function(request, response) {
     //console.log("Blog is :: ", Blog.mongoose.models);
-    /*let cursor = Blog.model.aggregate([
+    let cursor = Blog.model.aggregate([
         {
             $unwind: "$items"
         },
@@ -35,18 +35,18 @@ exports.list = function(req, res) {
     while((blog = cursor.next()) != null){
         blogs.push(blog);
     }
-    response.json({ Blog: blogs });*/
+    response.json({ Blog: blogs });
 
-    Blog.model.find(function(err, items) {
+    /*Blog.model.find(function(err, items) {
         if (err) return res.json({ err: err });
-        /*var a = [];
+        var a = [];
         for(var i =0;i<items[0].articles.length;i++){
             var article_full;
             Articles.model.find().where('_id', items[0].articles[i]).exec(function(errpost, article) {article_full = items[0].articles[i];})
             a.push(article_full);
-        }*/
+        }
         res.json({
-            Blog: items
+            Blog: a
         });
-    });
+    });*/
 }
