@@ -1,11 +1,17 @@
 var keystone = require('keystone');
 
 var Blog = keystone.list('Blog');
-var Articles = keystone.list('Article');
+var Article = keystone.list('Article');
 
 /**
  * List Blog
  */
+
+function article_query(name){
+    var query = Article.find({name:name});
+    return query;
+ }
+
 exports.list = function(req, res) {
     //console.log("Blog is :: ", Blog.mongoose.models);
     /*let cursor = Blog.model.aggregate([
@@ -40,16 +46,19 @@ exports.list = function(req, res) {
     Blog.model.find(function(err, items) {
         if (err) return res.json({ err: err });
         var a = [];
-        for(var i =0;i<items[0].articles.length;i++){
+        /*for(var i =0;i<items[0].articles.length;i++){
             var article_full;
             //article_full = Articles.model.find({_id:items[0].articles[i]});
+
             a.push(article_full);
-        }
+        }*/
+
+        var q = article_query(items[0].articles[0]);
 
         console.log('FUCK U!');
 
         res.json({
-            Blog: a
+            Blog: items[0].articles
         });
     });
 }
