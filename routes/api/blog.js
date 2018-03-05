@@ -42,9 +42,11 @@ exports.list = function(req, res) {
         var a = [];
         for(var i =0;i<items[0].articles.length;i++){
             var article_full;
-            article_full = Articles.model.find({_id:items[0].articles[i]});
+            //article_full = Articles.model.find({_id:items[0].articles[i]});
             a.push(article_full);
         }
+
+        console.log('FUCK U!');
 
         res.json({
             Blog: a
