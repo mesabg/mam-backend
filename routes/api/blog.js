@@ -13,45 +13,43 @@ function article_query(name){
  }
 
 exports.list = function(req, res) {
-    //console.log("Blog is :: ", Blog.mongoose.models);
-    /*let cursor = Blog.model.aggregate([
+    let cursor = Blog.model.aggregate([
         {
-            $unwind: "$items"
-        },
-        {
-            $unwind: "$items.articles"
+            $unwind: "$articles"
         },
         {
             $lookup: {
                 from: 'articles',
-                localField: 'items.articles',
+                localField: 'articles',
                 foreignField: '_id',
                 as: 'article'
             }
         },
         {
-            $project: {
-                _id: 0,
-                article: "$article"
+            $unwind: "$article"
+        },
+        {
+            $group: {
+                _id: '$_id',
+                slug: { $first: '$slug' },
+                name: { $first: '$name' },
+                __v: { $first: '$__v' },
+                articles: { $push: '$article' },
+                intro: { $first: '$intro' },
             }
         }
-    ]);
-    let blog = null;
-    let blogs = [];
-    while((blog = cursor.next()) != null){
-        blogs.push(blog);
-    }
-    res.json({ Blog: blogs });*/
+    ]).toArray();
+    res.json({ Blog: blogs });
 
-    Blog.model.find(function(err, items) {
+    /*Blog.model.find(function(err, items) {
         if (err) return res.json({ err: err });
         var a = [];
-        /*for(var i =0;i<items[0].articles.length;i++){
+        for(var i =0;i<items[0].articles.length;i++){
             var article_full;
             //article_full = Articles.model.find({_id:items[0].articles[i]});
 
             a.push(article_full);
-        }*/
+        }
 
         var q = article_query(items[0].articles[0]);
 
@@ -60,5 +58,5 @@ exports.list = function(req, res) {
         res.json({
             Blog: items[0].articles
         });
-    });
+    });*/
 }
