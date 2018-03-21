@@ -12,8 +12,8 @@ function article_query(name){
     return query;
  }
 
-exports.list = function(req, res) {
-    let cursor = Blog.model.aggregate([
+exports.list = async function(req, res) {
+    let cursor = await Blog.model.aggregate([
         {
             $unwind: "$articles"
         },
