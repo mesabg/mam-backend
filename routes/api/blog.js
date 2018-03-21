@@ -41,8 +41,8 @@ exports.list = function(req, res) {
     ])
     .exec(function (err, blogs) {
 
-        if (error) return res.json({
-        	error: error
+        if (err) return res.json({
+        	error: err
         });
 
         return res.json({ Blogs: blogs });
