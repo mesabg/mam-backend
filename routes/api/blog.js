@@ -12,8 +12,8 @@ function article_query(name){
     return query;
  }
 
-exports.list = async function(req, res) {
-    let cursor = await Blog.model.aggregate([
+exports.list = function(req, res) {
+    Blog.model.aggregate([
         {
             $unwind: "$articles"
         },
@@ -38,8 +38,16 @@ exports.list = async function(req, res) {
                 intro: { $first: '$intro' },
             }
         }
-    ]).toArray();
-    res.json({ Blog: blogs });
+    ])
+    .exec(function (err, blogs) {
+
+        if (error) return res.json({
+        	error: error
+        });
+
+        return res.json({ Blogs: blogs });
+    });
+    
 
     /*Blog.model.find(function(err, items) {
         if (err) return res.json({ err: err });
