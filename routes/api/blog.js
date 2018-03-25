@@ -48,23 +48,4 @@ exports.list = function(req, res) {
         return res.json({ Blogs: blogs });
     });
     
-
-    /*Blog.model.find(function(err, items) {
-        if (err) return res.json({ err: err });
-        var a = [];
-        for(var i =0;i<items[0].articles.length;i++){
-            var article_full;
-            //article_full = Articles.model.find({_id:items[0].articles[i]});
-
-            a.push(article_full);
-        }
-
-        var q = article_query(items[0].articles[0]);
-
-        console.log('FUCK U!');
-
-        res.json({
-            Blog: items[0].articles
-        });
-    });*/
 }
