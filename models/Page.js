@@ -18,9 +18,7 @@ Page.add({
   content: {
     title: { type: Types.Html, wysiwyg: true, height: 150 },
     description: { type: Types.Html, wysiwyg: true, height: 400 },
-  },
-  achievements: { type: Types.Relationship, ref: 'Achievement', many: true, createInline: true },
-  aptitudes: { type: Types.Relationship, ref: 'Aptitude', many: true, createInline: true },
+  }
 });
 
 Page.schema.virtual('content.full').get(function () {

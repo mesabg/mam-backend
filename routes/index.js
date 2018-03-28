@@ -54,8 +54,11 @@ exports = module.exports = function (app) {
 	app.get('/api/CTA-contact', routes.api.page.list);
 	app.get('/api/banner', 		routes.api.portfolio.list);
 	app.get('/api/Highlights', 	routes.api.article.list);
-	app.get('/api/page/mam', 	routes.api.mamPageController.list);
+	app.get('/api/achievements', routes.api.achievement.list);
+	app.get('/api/aptitudes', routes.api.aptitude.list);
 
+	//Pages API
+	app.get('/api/page/mam', 	routes.api.pageControllerMAM.list);
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);
 };
