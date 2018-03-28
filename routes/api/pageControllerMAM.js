@@ -9,6 +9,9 @@ exports.list = function (req, res) {
     Page.model.aggregate([
         {
             $match: { slug: 'miguel-angel-martinez' }
+        },
+        {
+            $limit: 1
         }
     ])
     .exec(function (err, page) {
