@@ -6,7 +6,8 @@ var Types = keystone.Field.Types;
  * =============
  */
 
-var MamPage = new keystone.List('Blog', {
+var MamPage = new keystone.List('MamPage', {
+    title: 'Miguel Ángel Martínez',
     autokey: { path: 'slug', from: 'name', unique: true },
 });
 
