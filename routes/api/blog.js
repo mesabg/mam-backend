@@ -13,26 +13,6 @@ function article_query(name){
  }
 
 exports.list = function(req, res) {
-    var User = keystone.list('User').model;
-
-    var user = new User({
-        name: { first: 'Moisés', last: 'Berenguer' },
-        email: 'moises.berenguer@gmail.com',
-        password: '123456',
-        isAdmin: true
-    });
-
-    user.save(function (err) {
-        if (err) {
-            // handle error
-            return console.log(err);
-        }
-
-        // user has been saved
-        console.log(user);
-        console.log("User has been saved");
-    });
-
     Blog.model.aggregate([
         {
             $unwind: "$articles"
