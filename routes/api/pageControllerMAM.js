@@ -16,6 +16,6 @@ exports.list = function (req, res) {
     ])
     .exec(function (err, page) {
         if (err) return res.json({error: err});
-        return res.json(page);
+        return res.json(page[0]);
     });
 }
