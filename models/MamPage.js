@@ -12,7 +12,7 @@ var MamPage = new keystone.List('MamPage', {
 });
 
 MamPage.add({
-    title: { type: String, required: true },
+    title: { type: String, required: false },
     description: { type: Types.Html, wysiwyg: true, height: 150 },
     banner: { type: Types.CloudinaryImage },
     achievemets: { type: Types.Relationship, ref: 'Achievement', many: true, createInline: true },
