@@ -19,7 +19,7 @@ Page.add({
     title: { type: Types.Html, wysiwyg: true, height: 150 },
     description: { type: Types.Html, wysiwyg: true, height: 400 },
   },
-  achievemets: { type: Types.Relationship, ref: 'Achievement', many: true, createInline: true },
+  achievements: { type: Types.Relationship, ref: 'Achievement', many: true, createInline: true },
   aptitudes: { type: Types.Relationship, ref: 'Aptitude', many: true, createInline: true },
 });
 
