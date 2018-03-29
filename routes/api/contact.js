@@ -6,17 +6,8 @@ var Article = keystone.list('Article');
  * Add contact
  */
 exports.create = async function (request, response) {
+    //-- Aux variables
     let data = request.body;
-    nameAndLastName
-    email
-    phone
-    SocialNetwork
-    dateWedding
-    locationChurch
-    locationReception
-    numInvited
-    details
-
     let emailValidator = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
     try {
@@ -33,7 +24,25 @@ exports.create = async function (request, response) {
         data.locationReception = data.locationReception || null;
         data.details = data.details || null;
 
-    } catch (error) {
+        //-- Save data into NON editable post in DB
         
+        //-- Send an email
+
+        //-- Return response
+        response.status(200);
+        response.json({
+            statusMessage: response.statusMessage,
+            statusCode: response.statusCode,
+            data: null
+        });
+
+    } catch (error) {
+        console.log("An error occurred :: ", error);
+        response.status(500);
+        response.json({
+            statusMessage: error,
+            statusCode: response.statusCode,
+            data: null
+        });
     }
 }
