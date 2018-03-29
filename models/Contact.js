@@ -11,11 +11,11 @@ var Contact = new keystone.List('Contact', {
 });
 
 Contact.add({
-    nameAndLastName: { type: String, required: true},
-    email: { type: String, required: true },
-    SocialNetwork: { type: String, required: true },
-    locationChurch: { type: String, required: true },
-    numInvited: { type: String, required: true },
+    nameAndLastName: { type: String },
+    email: { type: String },
+    SocialNetwork: { type: String },
+    locationChurch: { type: String },
+    numInvited: { type: String },
     phone: { type: String },
     dateWedding: { type: Date },
     locationReception: { type: String },
