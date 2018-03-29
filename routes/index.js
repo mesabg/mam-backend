@@ -57,8 +57,12 @@ exports = module.exports = function (app) {
 	app.get('/api/achievements', routes.api.achievement.list);
 	app.get('/api/aptitudes', routes.api.aptitude.list);
 
+	//Upload form
+	app.post('/api/contact', routes.api.contact.create);
+
 	//Pages API
-	app.get('/api/page/mam', 	routes.api.pageControllerMAM.list);
+	app.get('/api/page/mam', routes.api.pageControllerMAM.list);
+	app.get('/api/page/contact', routes.api.pageControllerContact.list);
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);
 };
