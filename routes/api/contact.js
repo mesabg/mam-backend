@@ -85,12 +85,12 @@ exports.create = async function (request, response) {
         });
 
     } catch (error) {
-        console.log("An error occurred :: ", error);
+        console.log("An error occurred :: ", error.message);
         response.status(500);
         response.json({
             statusMessage: error,
             statusCode: response.statusCode,
-            data: null
+            data: error.message
         });
     }
 }
