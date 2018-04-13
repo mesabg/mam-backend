@@ -35,7 +35,7 @@ keystone.pre('render', middleware.flashMessages);
 var routes = {
 	views: importRoutes('./views'),
 	api: importRoutes('./api'),
-	pages: importRoutes('./api/pages')
+	pages: importRoutes('./api/page')
 };
 
 // Setup Route Bindings
