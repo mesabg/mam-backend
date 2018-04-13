@@ -52,7 +52,6 @@ exports = module.exports = function (app) {
 	app.get('/api/instagram', 	routes.api.instagram.list);
 	app.get('/api/question', 	routes.api.question.list);
 	app.get('/api/CTA-contact', routes.api.page.list);
-	app.get('/api/banner', 		routes.api.portfolio.list);
 	app.get('/api/Highlights', 	routes.api.article.list);
 	app.get('/api/achievements', routes.api.achievement.list);
 	app.get('/api/aptitudes', routes.api.aptitude.list);
