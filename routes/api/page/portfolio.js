@@ -3,12 +3,12 @@ var keystone = require('keystone');
 var Page = keystone.list('Page');
 
 /**
- * List Pages
+ * GET Portafolio
  */
-exports.list = function (req, res) {
+exports.get = function (req, res) {
     Page.model.aggregate([
         {
-            $match: { slug: 'miguel-angel-martinez' }
+            $match: { slug: 'portafolio' }
         },
         {
             $limit: 1

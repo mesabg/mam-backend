@@ -3,19 +3,19 @@ var keystone = require('keystone');
 var Page = keystone.list('Page');
 
 /**
- * List Pages
+ * GET Contacto
  */
-exports.list = function (req, res) {
+exports.get = function (req, res) {
     Page.model.aggregate([
         {
-            $match: { slug: 'portafolio' }
+            $match: { slug: 'contacto' }
         },
         {
             $limit: 1
         }
     ])
     .exec(function (err, page) {
-        if (err) return res.json({error: err});
+        if (err) return res.json({ error: err });
         return res.json(page[0]);
     });
 }

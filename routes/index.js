@@ -61,9 +61,9 @@ exports = module.exports = function (app) {
 	app.post('/api/contact', routes.api.contact.create);
 
 	//Pages API
-	app.get('/api/page/mam', routes.api.pageControllerMAM.list);
-	app.get('/api/page/portfolio', routes.api.pageControllerPortfolio.list);
-	app.get('/api/page/contact', routes.api.pageControllerContact.list);
+	app.get('/api/page/mam', routes.api.page.mam.get);
+	app.get('/api/page/portfolio', routes.api.page.portfolio.get);
+	app.get('/api/page/contact', routes.api.page.contact.get);
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);
 };
