@@ -12,10 +12,14 @@ exports.create = async function (request, response) {
 
     try {
         //-- Check integrity
-        if (data.nameAndLastName.length === 0) throw new Error("Name and Last name must be defined");
-        if (data.email.length === 0 || !emailValidator.test(data.email)) throw new Error("Email must be defined");
-        if (data.SocialNetwork.length === 0) throw new Error("Social network must be defined");
-        if (data.locationChurch.length === 0) throw new Error("Location Church must be defined");
+        if (!data.nameAndLastName) throw new Error("Name and Last name must be defined");
+        if (data.nameAndLastName.length === 0) throw new Error("Name and Last name cannot be empty");
+        if (!data.email) throw new Error("Email must be defined");
+        if (data.email.length === 0 || !emailValidator.test(data.email)) throw new Error("Email cannot be empty");
+        if (!data.SocialNetwork) throw new Error("Social network must be defined");
+        if (data.SocialNetwork.length === 0) throw new Error("Social network cannot be empty");
+        if (!data.locationChurch) throw new Error("Location Church must be defined");
+        if (data.locationChurch.length === 0) throw new Error("Location Church cannot be empty");
         if (parseInt(data.numInvited) <= 0) throw new Error("Number of invited must be a positive integer");
 
         //-- Non necesary values
