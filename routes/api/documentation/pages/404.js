@@ -1,6 +1,6 @@
 /**
  *
- * @api {get} /api/page/404 404 Page
+ * @api {get} /api/page/404 404
  * @apiVersion 1.0.0
  *
  * @apiName 404
@@ -12,4 +12,5 @@
  * @apiUse HeadersRequired
  * @apiUse SuccessGet404Page
  * @apiUse CommonError
+ * @apiUse UnauthorizeError
  */
