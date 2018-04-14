@@ -52,6 +52,8 @@ exports = module.exports = function (app) {
 	 */
 	app.get('/api/achievements', 	middleware.authenticateUser, routes.api.achievement.list);
 	app.get('/api/aptitudes', 		middleware.authenticateUser, routes.api.aptitude.list);
+	app.get('/api/questions', 		middleware.authenticateUser, routes.api.question.list);
+	app.post('/api/contact', 		middleware.authenticateUser, routes.api.contact.create);
 
 
 	/**
@@ -68,13 +70,9 @@ exports = module.exports = function (app) {
 	//app.get('/api/blog', 		routes.api.blog.list);
 	//app.get('/api/biography', 	routes.api.biography.list);
 	//app.get('/api/instagram', 	routes.api.instagram.list);
-	app.get('/api/question', 	routes.api.question.list);
+	//app.get('/api/question', 	routes.api.question.list);
 	app.get('/api/CTA-contact', routes.api.page.list);
 	app.get('/api/Highlights', 	routes.api.article.list);
-	
-
-	//Upload form
-	app.post('/api/contact', routes.api.contact.create);
 
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);

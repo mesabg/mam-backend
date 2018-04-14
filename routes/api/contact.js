@@ -32,16 +32,18 @@ exports.create = async function (request, response) {
         let newContact = new Contact.model(data);
         newContact.save(function(error){
             if (error) {
-                response.status(200);
+                response.status(500);
+                response.statusMessage = error.message;
                 return response.json({
                     statusMessage: response.statusMessage,
                     statusCode: response.statusCode,
                     data: null
                 });
-            } else console.log("Contact saved succesfully");
+            } else console.info("[POST] /api/contact [contact saved in database]");
         });
         
         //-- Send an email
+        console.info("[POST] /api/contact [sending email]");
         nodemailer.createTestAccount((err, account) => {
             let transporter = nodemailer.createTransport({
                 host: 'smtp.ethereal.email',
@@ -78,7 +80,8 @@ exports.create = async function (request, response) {
 
         //-- Return response
         response.status(200);
-        response.json({
+        response.statusMessage = "Success";
+        return response.json({
             statusMessage: response.statusMessage,
             statusCode: response.statusCode,
             data: null
