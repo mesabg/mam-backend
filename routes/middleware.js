@@ -8,6 +8,7 @@
  * modules in your project's /lib directory.
  */
 var _ = require('lodash');
+const crypto = require('crypto');
 
 
 /**
@@ -65,7 +66,34 @@ exports.enableCors = function (request , response , next){
 
 
 exports.authenticateUser = function (request, response, next){
-	let token = request.get("x-mam-api-token");
-	console.log("Header token is :: ", token);
+	const token = request.get("x-mam-api-token");
+
+	/**
+	 * Check token binding
+	 */
+	if (!token) {
+		response.status(400);
+		response.statusMessage = "unauthorized";
+		return response.json({
+			statusMessage: response.statusMessage, 
+			statusCode: response.statusCode,
+			data: null 
+		});
+	}
+
+	/**
+	 * Validate token 
+	 */
+	const key = crypto.createHash('md5').update(process.env.PASS_KEY).digest("hex");
+	if (token != key){
+		response.status(400);
+		response.statusMessage = "unauthorized";
+		return response.json({
+			statusMessage: response.statusMessage, 
+			statusCode: response.statusCode,
+			data: null 
+		});
+	}
+	
 	next();
 }
