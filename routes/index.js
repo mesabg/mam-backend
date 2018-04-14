@@ -57,11 +57,11 @@ exports = module.exports = function (app) {
 	/**
 	 * RESTful API Routes (for pages)
 	 */
-	app.get('/api/page/404', 		middleware.authenticateUser, routes.pages.mam.get);
-	app.get('/api/page/contact', 	middleware.authenticateUser, routes.pages.contact.get);
-	app.get('/api/page/home', 		middleware.authenticateUser, routes.pages.contact.get);
-	app.get('/api/page/mam', 		middleware.authenticateUser, routes.pages.mam.get);
-	app.get('/api/page/portfolio',	middleware.authenticateUser, routes.pages.portfolio.get);
+	app.get('/api/page/404', 		middleware.authenticateUser, routes.pages['404'].get);
+	app.get('/api/page/contact', 	middleware.authenticateUser, routes.pages['contact'].get);
+	app.get('/api/page/home', 		middleware.authenticateUser, routes.pages['home'].get);
+	app.get('/api/page/mam', 		middleware.authenticateUser, routes.pages['mam'].get);
+	app.get('/api/page/portfolio',	middleware.authenticateUser, routes.pages['portfolio'].get);
 
 
 	// API REST

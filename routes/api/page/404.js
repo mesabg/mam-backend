@@ -5,7 +5,7 @@ var Page = keystone.list('Page');
 /**
  * GET 404
  */
-exports.get = function (req, res) {
+exports.get = function (request, response) {
     Page.model.aggregate([
         {
             $match: { slug: '404' }

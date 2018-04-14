@@ -5,7 +5,7 @@ var Page = keystone.list('Page');
 /**
  * GET Home
  */
-exports.get = function (req, res) {
+exports.get = function (request, response) {
     Page.model.aggregate([
         {
             $match: { slug: 'inicio' }

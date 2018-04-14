@@ -5,7 +5,7 @@ var Page = keystone.list('Page');
 /**
  * GET Portafolio
  */
-exports.get = function (req, res) {
+exports.get = function (request, response) {
     Page.model.aggregate([
         {
             $match: { slug: 'portafolio' }
@@ -14,7 +14,7 @@ exports.get = function (req, res) {
             $limit: 1
         }
     ])
-    .exec(function (err, page) {
+    .exec(function (error, page) {
         try {
             if (error) {
                 console.error("[GET] /api/page/portfolio [%s]", error.message);
