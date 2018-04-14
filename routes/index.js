@@ -65,9 +65,9 @@ exports = module.exports = function (app) {
 
 
 	// API REST
-	app.get('/api/blog', 		routes.api.blog.list);
-	app.get('/api/biography', 	routes.api.biography.list);
-	app.get('/api/instagram', 	routes.api.instagram.list);
+	//app.get('/api/blog', 		routes.api.blog.list);
+	//app.get('/api/biography', 	routes.api.biography.list);
+	//app.get('/api/instagram', 	routes.api.instagram.list);
 	app.get('/api/question', 	routes.api.question.list);
 	app.get('/api/CTA-contact', routes.api.page.list);
 	app.get('/api/Highlights', 	routes.api.article.list);
