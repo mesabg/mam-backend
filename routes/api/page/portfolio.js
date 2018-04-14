@@ -15,7 +15,27 @@ exports.get = function (req, res) {
         }
     ])
     .exec(function (err, page) {
-        if (err) return res.json({error: err});
-        return res.json(page[0]);
+        try {
+            if (error) {
+                console.error("[GET] /api/page/portfolio [%s]", error.message);
+                throw new Error("An error occured while retrieving page data");
+            }
+            response.status(200);
+            response.statusMessage = "Success";
+            return response.json({
+                statusMessage: response.statusMessage, 
+                statusCode: response.statusCode,
+                data: page[0] 
+            });
+                
+        } catch (error) {
+            response.status(500);
+            response.statusMessage = error.message;
+            return response.json({
+                statusMessage: response.statusMessage, 
+                statusCode: response.statusCode,
+                data: null 
+            });
+        }
     });
 }

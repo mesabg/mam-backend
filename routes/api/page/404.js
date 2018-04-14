@@ -1,23 +1,31 @@
 var keystone = require('keystone');
 
-var Achievement = keystone.list('Achievement');
+var Page = keystone.list('Page');
 
 /**
- * Retrieve all achievements
+ * GET 404
  */
-exports.list = function (request, response) {
-    Achievement.model.find(function (error, achievements) {
+exports.get = function (req, res) {
+    Page.model.aggregate([
+        {
+            $match: { slug: '404' }
+        },
+        {
+            $limit: 1
+        }
+    ])
+    .exec(function (error, page) {
         try {
             if (error) {
-                console.error("[GET] /api/achievements [%s]", error.message);
-                throw new Error("An error occured while retrieving achievements data");
+                console.error("[GET] /api/page/404 [%s]", error.message);
+                throw new Error("An error occured while retrieving page data");
             }
             response.status(200);
             response.statusMessage = "Success";
             return response.json({
                 statusMessage: response.statusMessage, 
                 statusCode: response.statusCode,
-                data: achievements 
+                data: page[0] 
             });
                 
         } catch (error) {

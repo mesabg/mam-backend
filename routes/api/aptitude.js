@@ -8,7 +8,10 @@ var Aptitude = keystone.list('Aptitude');
 exports.list = function (req, res) {
     Aptitude.model.find(function (error, aptitudes) {
         try {
-            if (error) throw new Error("An error occured while retrieving aptitudes data");
+            if (error) {
+                console.error("[GET] /api/aptitudes [%s]", error.message);
+                throw new Error("An error occured while retrieving aptitudes data");
+            }
             resopnse.status(200);
             response.statusMessage = "Success";
             return response.json({
