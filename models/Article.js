@@ -31,8 +31,7 @@ Article.add({
 			{ value: 3, label: 'Right' },
 		] 
 	},
-	carouselVisible: { type: Types.Boolean },
-	testimonialCarousel: { type: Types.Relationship, ref: 'TestimonialCarousel', many: false, createInline: true },
+	carouselVisible: { type: Types.Boolean }
 });
 
 Article.register();
