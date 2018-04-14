@@ -47,6 +47,13 @@ exports = module.exports = function (app) {
 	app.get('/gallery', routes.views.gallery);
 	app.all('/terms-and-conditions', routes.views.contact);
 
+	/**
+	 * RESTful API Routes
+	 */
+	app.get('/api/achievements', middleware.authenticateUser, routes.api.achievement.list);
+	app.get('/api/aptitudes', middleware.authenticateUser, routes.api.aptitude.list);
+
+
 	// API REST
 	app.get('/api/blog', 		routes.api.blog.list);
 	app.get('/api/biography', 	routes.api.biography.list);
@@ -54,8 +61,7 @@ exports = module.exports = function (app) {
 	app.get('/api/question', 	routes.api.question.list);
 	app.get('/api/CTA-contact', routes.api.page.list);
 	app.get('/api/Highlights', 	routes.api.article.list);
-	app.get('/api/achievements', routes.api.achievement.list);
-	app.get('/api/aptitudes', routes.api.aptitude.list);
+	
 
 	//Upload form
 	app.post('/api/contact', routes.api.contact.create);

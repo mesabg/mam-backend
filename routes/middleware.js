@@ -57,8 +57,15 @@ exports.requireUser = function (req, res, next) {
 };
 
 
-exports.enableCors = function (req ,res , next){
-	res.header("Access-Control-Allow-Origin", "*");
-	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+exports.enableCors = function (request , response , next){
+	request.header("Access-Control-Allow-Origin", "*");
+	request.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization, x-mam-api-token");
 	next();
 };
+
+
+exports.authenticateUser = function (request, response, next){
+	let token = request.get("x-mam-api-token");
+	console.log("Header token is :: ", token);
+	next();
+}

@@ -13,10 +13,14 @@ var Article = new keystone.List('Article', {
 
 Article.add({
 	name: { type: String, required: true, label: 'Name' },
-	image: { type: Types.CloudinaryImage },
-	images: { type: Types.CloudinaryImage, label: 'Animalito' },
+	image: {
+		main: { type: Types.CloudinaryImage, label: 'Main Image' },
+		secondary: { type: Types.CloudinaryImages, label: 'Secondary Images' },
+	},
 	location: { type: String },
-	mainText: { type: Types.Html, wysiwyg: true, height: 150 },
+	content: {
+		description: { type: Types.Html, wysiwyg: true, height: 400, label: 'Description' },
+	},
 	contentBlocks: { type: Types.Relationship, ref: 'ContentBlock', many: true, createInline: true },
 	blogPosition: { 
         type: Types.Select, 
@@ -27,16 +31,6 @@ Article.add({
 			{ value: 3, label: 'Right' },
 		] 
 	},
-	/*fieldA: { type: Types.Relationship, ref: 'Aptitude', many:true, createInline: true },
-	type:{ type: Types.Select, numeric: true, options: [
-		{ value: 1, label: '1 Image' }, 
-		{ value: 2, label: '2 Images' },
-		{ value: 3, label: '3 Images' },
-		{ value: 4, label: 'Image with left text' },
-		{ value: 5, label: 'Image with right text' },
-		{ value: 6, label: 'Image with text above' },
-		{ value: 7, label: 'Only text' }
-	]},*/
 	carouselVisible: { type: Types.Boolean },
 	testimonialCarousel: { type: Types.Relationship, ref: 'TestimonialCarousel', many: false, createInline: true },
 });
