@@ -85,7 +85,6 @@ exports.authenticateUser = function (request, response, next){
 	 * Validate token 
 	 */
 	const key = crypto.createHash('md5').update(process.env.PASS_KEY).digest("hex");
-	console.log("Key is :: ", key);
 	if (token != key){
 		response.status(400);
 		response.statusMessage = "unauthorized";
