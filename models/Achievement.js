@@ -2,8 +2,11 @@ var keystone = require('keystone');
 var Types = keystone.Field.Types;
 
 /**
- * Achievement Model
- * =============
+ * Achievement
+ * @param {String} name
+ * @param {CloudinaryImage} image
+ * @param {Html} content
+ * =======================
  */
 
 var Achievements = new keystone.List('Achievement', {

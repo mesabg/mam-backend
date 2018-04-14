@@ -2,8 +2,11 @@ var keystone = require('keystone');
 var Types = keystone.Field.Types;
 
 /**
- * Aptitude Model
- * =============
+ * Aptitude
+ * @param {String} name
+ * @param {CloudinaryImage} image
+ * @param {Html} content
+ * =======================
  */
 
 var Aptitude = new keystone.List('Aptitude', {

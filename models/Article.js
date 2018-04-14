@@ -12,20 +12,21 @@ var Article = new keystone.List('Article', {
 
 
 Article.add({
-	name: { type: String, required: true },
-    banner: { type: Types.CloudinaryImage },
-	location: { type: String},
-	mainText: { type: String},
+	name: { type: String, required: true, label: 'Name' },
+	image: { type: Types.CloudinaryImage },
+	images: { type: Types.CloudinaryImage, label: 'Animalito' },
+	location: { type: String },
+	mainText: { type: Types.Html, wysiwyg: true, height: 150 },
 	contentBlocks: { type: Types.Relationship, ref: 'ContentBlock', many: true, createInline: true },
 	blogPosition: { 
         type: Types.Select, 
         numeric: true, 
         options: [
-                    { value: 1, label: 'Center' }, 
-                    { value: 2, label: 'Left' },
-                    { value: 3, label: 'Right' },
-                ] 
-        },
+			{ value: 1, label: 'Center' }, 
+			{ value: 2, label: 'Left' },
+			{ value: 3, label: 'Right' },
+		] 
+	},
 	/*fieldA: { type: Types.Relationship, ref: 'Aptitude', many:true, createInline: true },
 	type:{ type: Types.Select, numeric: true, options: [
 		{ value: 1, label: '1 Image' }, 
