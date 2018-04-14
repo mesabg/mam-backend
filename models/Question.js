@@ -3,7 +3,10 @@ var Types = keystone.Field.Types;
 
 /**
  * Question Model
- * =============
+ * @param {String} name
+ * @param {String} question
+ * @param {String} answer
+ * =======================
  */
 
 var Question = new keystone.List('Question', {
@@ -11,11 +14,9 @@ var Question = new keystone.List('Question', {
 });
 
 Question.add({
-	name: { type: String, required: true},
-	question: { type: Types.Html, wysiwyg: true, height: 150 },
-	answer: { type: Types.Html, wysiwyg: true, height: 150 },
+	name: { type: String, required: true, label: 'Name' },
+	question: { type: Types.Html, wysiwyg: true, height: 150, label: 'Question' },
+	answer: { type: Types.Html, wysiwyg: true, height: 150, label: 'Answer' },
 });
-
-Question.relationship({ ref: 'ContactPage', path: 'contact-pages', refPath: 'questions' });
 
 Question.register();
