@@ -3,6 +3,8 @@
  * @api {get} /api/page/contact Contact
  * @apiVersion 1.0.0
  *
+ * @apiDescription Get data from contact page.
+ * 
  * @apiName Contact
  * @apiGroup Pages
  *

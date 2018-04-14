@@ -3,6 +3,8 @@
  * @api {get} /api/page/portfolio Portfolio
  * @apiVersion 1.0.0
  *
+ * @apiDescription Get data from portfolio page.
+ * 
  * @apiName Portfolio
  * @apiGroup Pages
  *

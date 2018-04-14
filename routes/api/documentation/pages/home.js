@@ -3,6 +3,8 @@
  * @api {get} /api/page/home Home
  * @apiVersion 1.0.0
  *
+ * @apiDescription Get data from home page.
+ * 
  * @apiName Home
  * @apiGroup Pages
  *

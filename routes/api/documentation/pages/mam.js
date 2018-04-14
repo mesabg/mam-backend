@@ -3,6 +3,8 @@
  * @api {get} /api/page/mam MAM
  * @apiVersion 1.0.0
  *
+ * @apiDescription Get data from mam page.
+ * 
  * @apiName MAM
  * @apiGroup Pages
  *
