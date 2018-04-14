@@ -19,6 +19,4 @@ Achievements.add({
 	content: { type: Types.Html, wysiwyg: true, height: 150 },
 });
 
-Achievements.relationship({ ref: 'Biography', path: 'biographies', refPath: 'achievements' });
-
 Achievements.register();
