@@ -16,10 +16,10 @@ exports.outstanding = function(request, response) {
             },
             {
                 $project: {
-                    _id: '$_id',
-                    slug: { $first: '$slug' },
-                    title: { $first: '$title' },
-                    image: { $push: '$article' },
+                    _id: 1,
+                    slug: 1,
+                    title: 1,
+                    image: 1,
                 }
             }
         ];
