@@ -10,9 +10,6 @@ exports.outstanding = function(request, response) {
         let page = parseInt(request.params.page);
         let limit = parseInt(request.params.limit);
 
-        console.log("Page :: ", page);
-        console.log("Limit :: ", limit);
-
         let aggregateQuery = [
             {
                 $match: { outstanding: true }
@@ -53,7 +50,7 @@ exports.outstanding = function(request, response) {
             return response.json({
                 statusMessage: response.statusMessage, 
                 statusCode: response.statusCode,
-                data: questions 
+                data: stories 
             });
         });
 
