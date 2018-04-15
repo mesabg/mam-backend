@@ -176,7 +176,7 @@ exports.single = function(request, response) {
             },
             {
                 $lookup: {
-                    from: 'story',
+                    from: 'testimonies',
                     localField: 'testimonies',
                     foreignField: '_id',
                     as: 'testimony'
