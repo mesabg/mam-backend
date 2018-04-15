@@ -7,7 +7,8 @@ var Types = keystone.Field.Types;
  */
 
 var Story = new keystone.List('Story', {
-	autokey: { from: 'name', path: 'key', unique: true },
+	map: { name: 'title' },
+	autokey: { path: 'slug', from: 'title', unique: true },
 });
 
 Story.add({
