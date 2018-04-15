@@ -170,6 +170,31 @@ exports.single = function(request, response) {
                     description: "$content.description",
                     testimonies: 1
                 }
+            },
+            {
+                $unwind: "$testimonies"
+            },
+            {
+                $lookup: {
+                    from: 'stories',
+                    localField: 'testimonies',
+                    foreignField: '_id',
+                    as: 'testimony'
+                }
+            },
+            {
+                $unwind: "$testimony"
+            },
+            {
+                $group: {
+                    _id: '$_id',
+                    slug: { $first: '$slug' },
+                    title: { $first: '$title' },
+                    image: { $first: '$image' },
+                    location: { $first: '$location' },
+                    description: { $first: '$description' },
+                    testimonies: { $push: '$testimony' },
+                }
             }
         ])
         .exec(function (error, stories) {
