@@ -28,6 +28,17 @@ keystone.pre('render', middleware.enableCors);
 keystone.pre('routes', middleware.initLocals);
 keystone.pre('render', middleware.flashMessages);
 
+// Common options response
+function enableOptions (request, response){ 
+	response.status(200);
+	response.statusMessage = "Success";
+	return response.json({
+		statusMessage: response.statusMessage, 
+		statusCode: response.statusCode,
+		data: null 
+	});  
+}
+
 // Pass your keystone instance to the module 
 //var restful = require('restful-keystone')(keystone);
 
@@ -50,29 +61,36 @@ exports = module.exports = function (app) {
 	/**
 	 * RESTful API Routes
 	 */
-	app.get('/api/achievements', 	middleware.authenticateUser, routes.api.achievement.list);
-	app.get('/api/aptitudes', 		middleware.authenticateUser, routes.api.aptitude.list);
-	app.get('/api/questions', 		middleware.authenticateUser, routes.api.question.list);
-	app.post('/api/contact', 		middleware.authenticateUser, routes.api.contact.create);
+	app.options('/api/achievements', 	enableOptions);
+	app.get('/api/achievements', 		middleware.authenticateUser, routes.api.achievement.list);
+
+	app.options('/api/aptitudes', 		enableOptions);
+	app.get('/api/aptitudes', 			middleware.authenticateUser, routes.api.aptitude.list);
+	
+	app.options('/api/questions', 		enableOptions);
+	app.get('/api/questions', 			middleware.authenticateUser, routes.api.question.list);
+	
+	app.options('/api/contact', 		enableOptions);
+	app.post('/api/contact', 			middleware.authenticateUser, routes.api.contact.create);
 
 
 	/**
 	 * RESTful API Routes (for pages)
 	 */
-	app.get('/api/page/404', 		middleware.authenticateUser, routes.pages['404'].get);
-	app.get('/api/page/contact', 	middleware.authenticateUser, routes.pages['contact'].get);
-	app.get('/api/page/home', 		middleware.authenticateUser, routes.pages['home'].get);
-	app.get('/api/page/mam', 		middleware.authenticateUser, routes.pages['mam'].get);
-	app.options('/api/page/mam', 	function(request, response){ 
-		response.status(200);
-		response.statusMessage = "Success";
-		return response.json({
-			statusMessage: response.statusMessage, 
-			statusCode: response.statusCode,
-			data: null 
-		});  
-	});
-	app.get('/api/page/portfolio',	middleware.authenticateUser, routes.pages['portfolio'].get);
+	app.options('/api/page/404', 		enableOptions);
+	app.get('/api/page/404', 			middleware.authenticateUser, routes.pages['404'].get);
+	
+	app.options('/api/page/contact',	enableOptions);
+	app.get('/api/page/contact', 		middleware.authenticateUser, routes.pages['contact'].get);
+
+	app.options('/api/page/home',		enableOptions);
+	app.get('/api/page/home', 			middleware.authenticateUser, routes.pages['home'].get);
+
+	app.options('/api/page/mam', 		enableOptions);
+	app.get('/api/page/mam', 			middleware.authenticateUser, routes.pages['mam'].get);
+	
+	app.options('/api/page/portfolio',	enableOptions);
+	app.get('/api/page/portfolio',		middleware.authenticateUser, routes.pages['portfolio'].get);
 
 
 	// API REST
