@@ -7,7 +7,8 @@ var Types = keystone.Field.Types;
  */
 
 var Contact = new keystone.List('Contact', {
-	autokey: { path: 'slug', from: 'name', unique: true },
+    autokey: { path: 'slug', from: 'name', unique: true },
+    nocreate: true
 });
 
 Contact.add({
