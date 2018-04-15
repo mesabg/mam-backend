@@ -30,6 +30,6 @@ ContentBlock.add({
 	images: { type: Types.CloudinaryImages },
 });
 
-ContentBlock.relationship({ ref: 'Article', path: 'articles', refPath: 'contentBlocks' });
+//ContentBlock.relationship({ ref: 'Article', path: 'articles', refPath: 'contentBlocks' });
 
 ContentBlock.register();
