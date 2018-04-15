@@ -59,9 +59,9 @@ exports.requireUser = function (req, res, next) {
 
 
 exports.enableCors = function (request , response , next){
-	request.header("Access-Control-Allow-Origin", "*");
-	request.header("Access-Control-Allow-Methods", "GET, POST, PUT");
-	request.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization, x-mam-api-token");
+	//request.header("Access-Control-Allow-Origin", "*");
+	//request.header("Access-Control-Allow-Methods", "GET, POST, PUT");
+	//request.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization, x-mam-api-token");
 	response.header("Access-Control-Allow-Origin", "*");
 	response.header("Access-Control-Allow-Methods", "GET, POST, PUT");
 	response.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization, x-mam-api-token");
@@ -70,12 +70,12 @@ exports.enableCors = function (request , response , next){
 
 
 exports.authenticateUser = function (request, response, next){
-	request.header("Access-Control-Allow-Origin", "*");
+	/*request.header("Access-Control-Allow-Origin", "*");
 	request.header("Access-Control-Allow-Methods", "GET, POST, PUT");
 	request.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization, x-mam-api-token");
 	response.header("Access-Control-Allow-Origin", "*");
 	response.header("Access-Control-Allow-Methods", "GET, POST, PUT");
-	response.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization, x-mam-api-token");
+	response.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization, x-mam-api-token");*/
 	const token = request.get("x-mam-api-token");
 
 	/**
