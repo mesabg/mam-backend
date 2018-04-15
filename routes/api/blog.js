@@ -1,16 +1,16 @@
 var keystone = require('keystone');
 
 var Blog = keystone.list('Blog');
-var Article = keystone.list('Article');
+//var Article = keystone.list('Article');
 
 /**
  * List Blog
  */
-
+/*
 function article_query(name){
     var query = Article.find({name:name});
     return query;
- }
+ }*/
 
 exports.list = function(req, res) {
     Blog.model.aggregate([
