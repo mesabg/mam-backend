@@ -73,8 +73,8 @@ exports = module.exports = function (app) {
 	app.options('/api/contact', 		enableOptions);
 	app.get('/api/contact', 			middleware.authenticateUser, routes.api.contact.create);
 
-	app.options('/api/stories/outstanding/:limit/:page', enableOptions);
-	app.get('/api/stories/outstanding/:limit/:page', 	 middleware.authenticateUser, routes.api.story.outstanding);
+	app.options('/api/stories/outstanding', enableOptions);
+	app.get('/api/stories/outstanding', 	middleware.authenticateUser, routes.api.story.outstanding);
 
 
 	/**

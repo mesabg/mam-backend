@@ -7,8 +7,8 @@ var Story = keystone.list('Story');
  */
 exports.outstanding = function(request, response) {
     try {
-        let page = parseInt(request.params.page);
-        let limit = parseInt(request.params.limit);
+        let page = parseInt(request.query.page);
+        let limit = parseInt(request.query.limit);
 
         let aggregateQuery = [
             {
