@@ -19,14 +19,18 @@ exports.outstanding = function(request, response) {
                     _id: 1,
                     slug: 1,
                     title: 1,
-                    image: 1,
+                    image: "$image.main",
+                    location: 1,
+                    description: "$content.description"
                 }
             }
         ];
 
-        if (page && limit) {
-            aggregateQuery.push({ $skip: limit * page });
-            aggregateQuery.push({ $limit: limit });
+        if (page != undefined && page != null && !isNaN(page) && limit != undefined && limit != null && !isNaN(limit)) {
+            if (page >= 1 && limit >= 1){
+                aggregateQuery.push({ $skip: limit * page });
+                aggregateQuery.push({ $limit: limit });
+            }
         }
 
         /**
@@ -85,14 +89,18 @@ exports.portfolio = function(request, response) {
                     _id: 1,
                     slug: 1,
                     title: 1,
-                    image: 1,
+                    image: "$image.main",
+                    location: 1,
+                    description: "$content.description"
                 }
             }
         ];
 
-        if (page && limit) {
-            aggregateQuery.push({ $skip: limit * page });
-            aggregateQuery.push({ $limit: limit });
+        if (page != undefined && page != null && !isNaN(page) && limit != undefined && limit != null && !isNaN(limit)) {
+            if (page >= 1 && limit >= 1){
+                aggregateQuery.push({ $skip: limit * page });
+                aggregateQuery.push({ $limit: limit });
+            }
         }
 
         /**
