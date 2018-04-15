@@ -76,6 +76,12 @@ exports = module.exports = function (app) {
 	app.options('/api/stories/outstanding', enableOptions);
 	app.get('/api/stories/outstanding', 	middleware.authenticateUser, routes.api.story.outstanding);
 
+	app.options('/api/stories/portfolio', 	enableOptions);
+	app.get('/api/stories/portfolio', 		middleware.authenticateUser, routes.api.story.portfolio);
+
+	app.options('/api/stories/detail', 		enableOptions);
+	app.get('/api/stories/detail', 			middleware.authenticateUser, routes.api.story.single);
+
 
 	/**
 	 * RESTful API Routes (for pages)
