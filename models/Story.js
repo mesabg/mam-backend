@@ -2,16 +2,15 @@ var keystone = require('keystone');
 var Types = keystone.Field.Types;
 
 /**
- * Article Model
+ * Story Model
  * =============
  */
 
-var Article = new keystone.List('Article', {
+var Story = new keystone.List('Story', {
 	autokey: { from: 'name', path: 'key', unique: true },
 });
 
-
-Article.add({
+Story.add({
 	name: { type: String, required: true, label: 'Name' },
 	image: {
 		main: { type: Types.CloudinaryImage, label: 'Main Image' },
@@ -21,7 +20,14 @@ Article.add({
 	content: {
 		description: { type: Types.Html, wysiwyg: true, height: 400, label: 'Description' },
 	},
-	contentBlocks: { type: Types.Relationship, ref: 'ContentBlock', many: true, createInline: true },
+	outstanding: { type: Types.Boolean, label: 'Outstanding' },
+	visibleOnPortfolio: { type: Types.Boolean, label: 'Visible on portfolio' }
+});
+
+Story.register();
+
+/**
+ * contentBlocks: { type: Types.Relationship, ref: 'ContentBlock', many: true, createInline: true },
 	blogPosition: { 
         type: Types.Select, 
         numeric: true, 
@@ -32,6 +38,4 @@ Article.add({
 		] 
 	},
 	carouselVisible: { type: Types.Boolean }
-});
-
-Article.register();
+ */

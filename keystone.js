@@ -54,10 +54,9 @@ keystone.set('routes', require('./routes'));
 // Configure the navigation bar in Keystone's Admin UI
 keystone.set('nav', {
 	users: 'users',
-	biography: ['achievements', 'aptitudes'],
-	testimonial: 'testimonials',
-	article: ['articles', 'content-blocks'],
-	contactPage: ['questions'],
+	main: ['stories', 'achievements', 'aptitudes'],
+	secondary: ['testimony', 'questions'],
+	general: ['pages'],
 });
 
 // Start Keystone to connect to your database and initialise the web server
