@@ -20,6 +20,7 @@ Story.add({
 	content: {
 		description: { type: Types.Html, wysiwyg: true, height: 400, label: 'Description' },
 	},
+	testimonies: { type: Types.Relationship, ref: 'Testimony', many: true, label: 'Testimonies' },
 	outstanding: { type: Types.Boolean, label: 'Outstanding' },
 	visibleOnPortfolio: { type: Types.Boolean, label: 'Visible on portfolio' }
 });
