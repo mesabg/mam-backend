@@ -60,7 +60,7 @@ exports.requireUser = function (req, res, next) {
 
 exports.enableCors = function (request , response , next){
 	request.header("Access-Control-Allow-Origin", "*");
-	response.header("Access-Control-Allow-Methods", "GET, POST, PUT");
+	request.header("Access-Control-Allow-Methods", "GET, POST, PUT");
 	request.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization, x-mam-api-token");
 	response.header("Access-Control-Allow-Origin", "*");
 	response.header("Access-Control-Allow-Methods", "GET, POST, PUT");
