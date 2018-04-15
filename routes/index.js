@@ -63,7 +63,7 @@ exports = module.exports = function (app) {
 	app.get('/api/page/contact', 	middleware.authenticateUser, routes.pages['contact'].get);
 	app.get('/api/page/home', 		middleware.authenticateUser, routes.pages['home'].get);
 	app.get('/api/page/mam', 		middleware.authenticateUser, routes.pages['mam'].get);
-	app.options('/api/page/mam', 	middleware.authenticateUser, function(request, response){ 
+	app.options('/api/page/mam', 	function(request, response){ 
 		response.status(200);
 		response.statusMessage = "Success";
 		return response.json({
