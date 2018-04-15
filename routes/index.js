@@ -71,10 +71,10 @@ exports = module.exports = function (app) {
 	app.get('/api/questions', 			middleware.authenticateUser, routes.api.question.list);
 	
 	app.options('/api/contact', 		enableOptions);
-	app.post('/api/contact', 			middleware.authenticateUser, routes.api.contact.create);
+	app.get('/api/contact', 			middleware.authenticateUser, routes.api.contact.create);
 
 	app.options('/api/stories/outstanding/:limit/:page', enableOptions);
-	app.post('/api/stories/outstanding/:limit/:page', 	 middleware.authenticateUser, routes.api.story.outstanding);
+	app.get('/api/stories/outstanding/:limit/:page', 	 middleware.authenticateUser, routes.api.story.outstanding);
 
 
 	/**
