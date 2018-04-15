@@ -7,7 +7,8 @@ var Types = keystone.Field.Types;
  */
 
 var ContentBlock = new keystone.List('ContentBlock', {
-	autokey: { path: 'slug', from: 'name', unique: true },
+    autokey: { path: 'slug', from: 'name', unique: true },
+    hidden: true
 });
 
 ContentBlock.add({

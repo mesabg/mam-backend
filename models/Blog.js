@@ -7,7 +7,8 @@ var Types = keystone.Field.Types;
  */
 
 var Blog = new keystone.List('Blog', {
-	autokey: { path: 'slug', from: 'name', unique: true },
+    autokey: { path: 'slug', from: 'name', unique: true },
+    hidden: true
 });
 
 Blog.add({
