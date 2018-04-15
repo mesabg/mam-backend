@@ -73,6 +73,9 @@ exports = module.exports = function (app) {
 	app.options('/api/contact', 		enableOptions);
 	app.post('/api/contact', 			middleware.authenticateUser, routes.api.contact.create);
 
+	app.options('/api/stories/outstanding/:limit/:page', enableOptions);
+	app.post('/api/stories/outstanding/:limit/:page', 	 middleware.authenticateUser, routes.api.story.outstanding);
+
 
 	/**
 	 * RESTful API Routes (for pages)
