@@ -55,7 +55,7 @@ keystone.set('routes', require('./routes'));
 keystone.set('nav', {
 	users: 'users',
 	main: ['stories', 'achievements', 'aptitudes'],
-	secondary: ['testimony', 'questions'],
+	secondary: ['testimonies', 'questions'],
 	general: ['pages'],
 });
 
