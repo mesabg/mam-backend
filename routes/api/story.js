@@ -186,6 +186,24 @@ exports.single = function(request, response) {
                 $unwind: "$testimony"
             },
             {
+                $project: {
+                    _id: 1,
+                    slug: 1,
+                    title: 1,
+                    image: 1,
+                    location: 1,
+                    description: 1,
+                    testimony: {
+                        _id: "$testimony._id",
+                        slug: "$testimony.slug",
+                        name: "$testimony.name",
+                        author: "$testimony.author",
+                        content: "$testimony.content",
+                        image: "$testimony.image"
+                    }
+                }
+            },
+            {
                 $group: {
                     _id: '$_id',
                     slug: { $first: '$slug' },
