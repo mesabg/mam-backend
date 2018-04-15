@@ -12,7 +12,7 @@ var Story = new keystone.List('Story', {
 });
 
 Story.add({
-	name: { type: String, required: true, label: 'Name' },
+	name: { type: String, label: 'Name' },
 	image: {
 		main: { type: Types.CloudinaryImage, label: 'Main Image' },
 		secondary: { type: Types.CloudinaryImages, label: 'Secondary Images' },
