@@ -69,7 +69,7 @@ exports = module.exports = function (app) {
 		return response.json({
 			statusMessage: response.statusMessage, 
 			statusCode: response.statusCode,
-			data: achievements 
+			data: null 
 		});  
 	});
 	app.get('/api/page/portfolio',	middleware.authenticateUser, routes.pages['portfolio'].get);
