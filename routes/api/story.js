@@ -28,7 +28,7 @@ exports.outstanding = function(request, response) {
 
         if (page != undefined && page != null && !isNaN(page) && limit != undefined && limit != null && !isNaN(limit)) {
             if (page >= 1 && limit >= 1){
-                aggregateQuery.push({ $skip: limit * page });
+                aggregateQuery.push({ $skip: (limit-1) * page });
                 aggregateQuery.push({ $limit: limit });
             }
         }
@@ -98,7 +98,7 @@ exports.portfolio = function(request, response) {
 
         if (page != undefined && page != null && !isNaN(page) && limit != undefined && limit != null && !isNaN(limit)) {
             if (page >= 1 && limit >= 1){
-                aggregateQuery.push({ $skip: limit * page });
+                aggregateQuery.push({ $skip: (limit-1) * page });
                 aggregateQuery.push({ $limit: limit });
             }
         }
