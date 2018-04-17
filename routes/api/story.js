@@ -3,6 +3,71 @@ var keystone = require('keystone');
 var Story = keystone.list('Story');
 
 /**
+ * Retrieve all stories
+ */
+exports.list = function(request, response){
+    try {
+        let page = parseInt(request.query.page);
+        let limit = parseInt(request.query.limit);
+
+        let aggregateQuery = [
+            {
+                $project: {
+                    _id: 1,
+                    slug: 1,
+                    title: 1,
+                    image: "$image.main",
+                    location: 1,
+                    description: "$content.description"
+                }
+            }
+        ];
+
+        if (page != undefined && page != null && !isNaN(page) && limit != undefined && limit != null && !isNaN(limit)) {
+            if (page >= 1 && limit >= 1){
+                aggregateQuery.push({ $skip: limit * (page-1) });
+                aggregateQuery.push({ $limit: limit });
+            }
+        }
+
+        /**
+         * Execute query
+         */
+        Story.model.aggregate(aggregateQuery)
+        .exec(function (error, stories) {
+
+            if (error) {
+                response.status(500);
+                response.statusMessage = error.message;
+                return response.json({
+                    statusMessage: response.statusMessage, 
+                    statusCode: response.statusCode,
+                    data: null 
+                });
+            }
+
+            response.status(200);
+            response.statusMessage = "Success";
+            return response.json({
+                statusMessage: response.statusMessage, 
+                statusCode: response.statusCode,
+                data: stories 
+            });
+        });
+
+    } catch (error) {
+        response.status(500);
+        response.statusMessage = error.message;
+        return response.json({
+            statusMessage: response.statusMessage, 
+            statusCode: response.statusCode,
+            data: null 
+        });
+    } 
+}
+
+
+/**
  * Outstanding Stories
  */
 exports.outstanding = function(request, response) {
@@ -21,9 +86,53 @@ exports.outstanding = function(request, response) {
                     title: 1,
                     image: "$image.main",
                     location: 1,
-                    description: "$content.description"
+                    description: "$content.description",
+                    testimonies: 1
                 }
-            }
+            },
+            {
+                $unwind: "$testimonies"
+            },
+            {
+                $group: {
+                    _id: '$_id',
+                    slug: { $first: '$slug' },
+                    title: { $first: '$title' },
+                    image: { $first: '$image' },
+                    location: { $first: '$location' },
+                    description: { $first: '$description' },
+                    testimony: { $first: '$testimonies' },
+                }
+            },
+            {
+                $lookup: {
+                    from: 'testimonies',
+                    localField: 'testimony',
+                    foreignField: '_id',
+                    as: 'testimony'
+                }
+            },
+            {
+                $unwind: "$testimony"
+            },
+            {
+                $project: {
+                    _id: 1,
+                    slug: 1,
+                    title: 1,
+                    image: 1,
+                    location: 1,
+                    description: 1,
+                    testimony: {
+                        _id: "$testimony._id",
+                        slug: "$testimony.slug",
+                        name: "$testimony.name",
+                        author: "$testimony.author",
+                        content: "$testimony.content",
+                        image: "$testimony.image"
+                    }
+                }
+            },
         ];
 
         if (page != undefined && page != null && !isNaN(page) && limit != undefined && limit != null && !isNaN(limit)) {

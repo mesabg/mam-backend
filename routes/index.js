@@ -46,7 +46,8 @@ function enableOptions (request, response){
 var routes = {
 	views: importRoutes('./views'),
 	api: importRoutes('./api'),
-	pages: importRoutes('./api/page')
+	pages: importRoutes('./api/page'),
+	components: importRoutes('./api/component')
 };
 
 // Setup Route Bindings
@@ -82,6 +83,9 @@ exports = module.exports = function (app) {
 	app.options('/api/stories/detail', 		enableOptions);
 	app.get('/api/stories/detail', 			middleware.authenticateUser, routes.api.story.single);
 
+	app.options('/api/stories', 			enableOptions);
+	app.get('/api/stories', 				middleware.authenticateUser, routes.api.story.list);
+
 
 	/**
 	 * RESTful API Routes (for pages)
@@ -101,6 +105,13 @@ exports = module.exports = function (app) {
 	app.options('/api/page/portfolio',	enableOptions);
 	app.get('/api/page/portfolio',		middleware.authenticateUser, routes.pages['portfolio'].get);
 
+
+	/**
+	 * RESTful API Routes (for components)
+	 */
+	app.options('/api/component/footer',	enableOptions);
+	app.get('/api/component/footer',		middleware.authenticateUser, routes.components.get);
+	
 
 	// API REST
 	//app.get('/api/blog', 		routes.api.blog.list);
