@@ -105,6 +105,9 @@ exports = module.exports = function (app) {
 	app.options('/api/page/portfolio',	enableOptions);
 	app.get('/api/page/portfolio',		middleware.authenticateUser, routes.pages['portfolio'].get);
 
+	app.options('/api/page/stories',	enableOptions);
+	app.get('/api/page/stories',		middleware.authenticateUser, routes.pages['stories'].get);
+
 
 	/**
 	 * RESTful API Routes (for components)
