@@ -14,7 +14,8 @@ var Types = keystone.Field.Types;
 var Component = new keystone.List('Component', {
 	map: { name: 'title' },
 	autokey: { path: 'slug', from: 'title', unique: true },
-	nodelete: true,
+    nodelete: true,
+    nocreate: true,
 });
 
 Component.add({

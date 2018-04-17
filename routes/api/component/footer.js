@@ -11,6 +11,14 @@ exports.get = function (request, response) {
             $match: { slug: 'footer' }
         },
         {
+            $project: {
+                _id: 1,
+                title: 1,
+                slug: 1,
+                description: "$content.title"
+            }
+        }, 
+        {
             $limit: 1
         }
     ])
