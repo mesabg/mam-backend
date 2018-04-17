@@ -56,7 +56,7 @@ keystone.set('nav', {
 	users: 'users',
 	mainPosts: ['stories', 'achievements', 'aptitudes'],
 	secondaryPosts: ['testimonies', 'questions', 'contacts'],
-	pages: ['pages'],
+	extraContent: ['pages', 'components'],
 });
 
 // Start Keystone to connect to your database and initialise the web server

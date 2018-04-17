@@ -110,7 +110,7 @@ exports = module.exports = function (app) {
 	 * RESTful API Routes (for components)
 	 */
 	app.options('/api/component/footer',	enableOptions);
-	app.get('/api/component/footer',		middleware.authenticateUser, routes.components.get);
+	app.get('/api/component/footer',		middleware.authenticateUser, routes.components["footer"].get);
 	
 
 	// API REST
